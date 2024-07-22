@@ -1,1 +1,113 @@
-<h1>Hello can you hear me?</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Targets Portofolio</title>
+    <meta property="og:title" content="Targets Portofolio">
+    <meta property="og:description" content="Check out my website to know more about me">
+    <meta property="og:image" content="https://i.pinimg.com/736x/54/7f/5e/547f5e696ae7e2dae5c60880e755b07c.jpg">
+    <meta property="og:url" content="targeteater.xyz">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        h1 {
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            line-height: 0;
+        }
+
+        #clock {
+            color: rgb(166, 255, 0);
+        }
+
+        #discord {
+            color: rgb(114, 137, 218);
+        }
+
+        html, body {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #222;
+            color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Hey, I am target and I'm <span id="clock">0</span></h1>
+    <h1 span="typewriter"></h1>
+    <h1 span="typewritertwo"></h1>
+
+    <script>
+        function startClock() {
+            var count = 0;
+            var clock = document.getElementById("clock");
+
+            var interval = setInterval(function() {
+                count++;
+                clock.textContent = count;
+
+                if (count >= 15) {
+                    clearInterval(interval);
+                    typewriter("And i know Luau, Python, JavaScript, TypeScript, HTML & CSS.");
+
+                }
+            }, 125);
+        }
+
+        function typewriter(text) {
+            var target = document.querySelector('[span="typewriter"]');
+            var text = text;
+            var speed = 50;
+            var i = 0;
+
+            function type() {
+                if (i < text.length) {
+                    target.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+
+            type();
+            setTimeout(function() {
+                typewritertwo("My discord is 91ba. Also the website is being remade in Next.js soon");
+                setTimeout(function() {
+                    var image = document.createElement("img");
+                    image.src = "https://i.pinimg.com/736x/54/7f/5e/547f5e696ae7e2dae5c60880e755b07c.jpg";
+                    image.height = 100;
+                    image.width = 100;
+                    document.body.appendChild(image);
+                }, 4050);
+            }, 3500);
+        }
+
+        function typewritertwo(text) {
+            var target = document.querySelector('[span="typewritertwo"]');
+            var text = text;
+            var speed = 50;
+            var i = 0;
+
+            function type() {
+                if (i < text.length) {
+                    target.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+
+            type();
+        }
+
+        startClock();
+    </script>
+</body>
+</html>
